@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Calculator</title>
+  <link rel="stylesheet" href="javacalculator.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- container -->
+  <div class="container">
+    <div class="calculator">
+      <!-- output display -->
+      <div class="output">
+
+        <pre id="place">DEG</pre>
+        <pre id="upper"></pre>
+        <pre id="lower">0</pre>
+      </div>
+      <!-- button -->
+      <div class="input">
+        <button onclick="pressNum(this)">7</button>
+        <button onclick="pressNum(this)">8</button>
+        <button onclick="pressNum(this)">9</button>
+        <button onclick="pressAllClear()" id="del">DEL</button>
+        <button onclick="pressNum(this)">4</button>
+        <button onclick="pressNum(this)">5</button>
+        <button onclick="pressNum(this)">6</button>
+        <button onclick="pressOperator(this)" id="devide">&div;</button>
+        <button onclick="pressNum(this)">1</button>
+        <button onclick="pressNum(this)">2</button>
+        <button onclick="pressNum(this)">3</button>
+        <button onclick="pressOperator(this)" id="multy">&times;</button>
+        <button onclick="pressDot()">.</button>
+        <button onclick="pressNum(this)">0</button>
+        <button onclick="pressEqual()">=</button>
+        <button onclick="pressOperator(this)" id="minus">-</button>
+        <button onclick="pressOperator(this)" id="plus">+</button>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="javacalculator.js">
+
+  </script>
+</body>
+
+</html>
