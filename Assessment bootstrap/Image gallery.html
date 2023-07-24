@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Bootstrap link -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <!-- ----------------------------------------------
+    Genral css 
+    ---------------------------------------------- -->
+
+    <style>
+      body {
+        background-color: #9aa4ae;
+        margin: 10px;
+      }
+
+      /* img css start */
+ 
+      img.zoom {
+        width: 100%;
+        height: 200px;
+        border-radius: 5px;
+        object-fit: cover;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .transition {
+        transform: scale(1.2);
+      }
+      /* img css end */
+    </style>
+
+    <!-- --------------------------------------
+    Jquery  img hover start
+    -------------------------------------- -->
+
+    <script>
+      $(document).ready(function () {
+        $(".fancybox").fancybox({
+          openEffect: "none",
+          closeEffect: "none",
+        });
+
+        $(".zoom").hover(
+          function () {
+            $(this).addClass("transition");
+          },
+          function () {
+            $(this).removeClass("transition");
+          }
+        );
+      });
+    </script>
+    <!-- --------------------------------------
+    Jquery  img hover end
+    -------------------------------------- -->
+
+  </head>
+  <body>
+    <!-- bootstrap pages start -->
+    <div class="container page-top">
+      <div class="row">
+        <!-- first img link start -->
+        <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg" class="fancybox" rel="ligthbox">
+            <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg" class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+         <!-- first img link end -->
+
+         <!-- secound img link start -->
+        <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://www.clariontech.com/hubfs/Web%20Developer%20Vs%20Web%20Designer.png" class="fancybox" rel="ligthbox">
+            <img src="https://www.clariontech.com/hubfs/Web%20Developer%20Vs%20Web%20Designer.png" class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+        <!-- secound img link end -->
+
+        <!-- third img link start -->
+       <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPsbNfmwoEKACjgFt2jWbGT93KnpF2vv6EwQ&usqp=CAU" rel="ligthbox">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPsbNfmwoEKACjgFt2jWbGT93KnpF2vv6EwQ&usqp=CAU"class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+        <!-- third img link end -->
+
+        <!-- fourth img link start -->
+        <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo1TN17PkjGEZw4ngZQLyQGLyQbD5RFANSYA&usqp=CAU" class="fancybox" rel="ligthbox">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo1TN17PkjGEZw4ngZQLyQGLyQbD5RFANSYA&usqp=CAU" class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+         <!-- fourth img link start -->
+
+          <!-- five img link start -->
+        <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKYUhcs_t6kI9Z8dc_xZThvXXBYb6UVh1TYz9NH12XLshLDwtIN-CwQDv2bftUhiNqKTo&usqp=CAU" class="fancybox" rel="ligthbox">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKYUhcs_t6kI9Z8dc_xZThvXXBYb6UVh1TYz9NH12XLshLDwtIN-CwQDv2bftUhiNqKTo&usqp=CAU" class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+        <!-- five img link end -->
+
+        <!-- six img link start -->
+        <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMvaGdekHd_QgE3Nh_q2OxCYiy59PmvEK9bHa2FODiAeQj-0ku0oP0Noz9I2NmCSGj0SE&usqp=CAU" class="fancybox" rel="ligthbox">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMvaGdekHd_QgE3Nh_q2OxCYiy59PmvEK9bHa2FODiAeQj-0ku0oP0Noz9I2NmCSGj0SE&usqp=CAU" class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+        <!-- six img link end -->
+
+        <!-- seven img link start -->
+        <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgcEBIIUK1NUa2p4wRU2BndATlio16v0dyt9M8GrMh2ui9x2kLqds5dGjATitDh9VV36s&usqp=CAU" class="fancybox" rel="ligthbox">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgcEBIIUK1NUa2p4wRU2BndATlio16v0dyt9M8GrMh2ui9x2kLqds5dGjATitDh9VV36s&usqp=CAU" class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+        <!-- seven img link end -->
+
+        <!-- eight img link start -->
+       <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo1TN17PkjGEZw4ngZQLyQGLyQbD5RFANSYA&usqp=CAU" class="fancybox" rel="ligthbox">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo1TN17PkjGEZw4ngZQLyQGLyQbD5RFANSYA&usqp=CAU" class="zoom img-fluid" alt="" />
+          </a>
+        </div>
+        <!-- eight img link end -->
+
+        <!-- nine img link start -->
+        <div class="col-lg-4 mt-lg-4 col-md-4 mt-lg-4 col-xs-6 mt-xs-2 thumb">
+          <a href="https://qph.cf2.quoracdn.net/main-qimg-13a14fe202cd47824c9d3a36c2b8370d-pjlq" class="fancybox" rel="ligthbox">
+            <img src="https://qph.cf2.quoracdn.net/main-qimg-13a14fe202cd47824c9d3a36c2b8370d-pjlq" class="zoom img-fluid" alt="" />
+          </a>
+          <!-- nine img link end -->
+          <!-- bootstarp pages end -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
