@@ -1,0 +1,62 @@
+.col-img {
+    background-image: url(https://www.dmartindia.com/static/media/photo-1514792368985-f80e9d482a02.c96767e9.jpg);
+    /* background-position:center; */
+    background-size: cover;
+    height: 250px;
+    width: 50%;
+}
+
+.Landlords {
+    height: 250px;
+    width: 50%;
+    border: 2px solid beige;
+    background-image: url(https://www.dmartindia.com/static/media/photo-1534723452862-4c874018d66d.4328707c.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.Job_Aspirant {
+    height: 250px;
+    width: 50%;
+    border: 2px solid beige;
+    background-image: url(https://www.dmartindia.com/static/media/photo-1586281380349-632531db7ed4.d0c6ae2b.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+.Better_Schools_Brighter_Futures {
+    height: 250px;
+    width: 50%;
+    border: 2px solid beige;
+    background-image: url(https://www.dmartindia.com/static/media/photo-1531206715517-5c0ba140b2b8.69577f04.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+.col-dmart{
+    height: 300px;
+    /* width: 700px; */
+    border: 2px solid black;
+    background-image: url(https://api.dmartindia.com/corporate/content/file/v1/89/T18m8vbqLZ7liRBQD6AVmNtP1689159639/Palga);
+    background-position: center;
+    background-size: cover;
+}
+
+.col-wagholi{
+    height: 300px;
+    border: 2px solid black;
+    background-image: url(https://api.dmartindia.com/corporate/content/file/v1/88/jRNloxXl7f1hcHl706dYaYrX1689159545/Wagholi);
+    background-position: center;
+    background-size: cover;
+}
+
+.Turangi{
+    height: 300px;
+    border: 2px solid black;
+    background-image: url(https://api.dmartindia.com/corporate/content/file/v1/90/laVLydQH0LvfMhLzLpy0KQC01689162487/Turangi);
+    background-position: center;
+    background-size: cover;
+}
+
