@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <!-- <script src="calculator.js" type="text/javascript"></script> -->
+    <script>
+        function calculator() {
+            var note_2000 = document.getElementById('2000').value;
+            var note_500 = document.getElementById('500').value;
+            var note_200 = document.getElementById('200').value;
+            var note_100 = document.getElementById('100').value;
+            var note_50 = document.getElementById('50').value;
+            var note_20 = document.getElementById('20').value;
+            var note_10 = document.getElementById('10').value;
+            var note_5 = document.getElementById('5').value;
+            var note_2 = document.getElementById('2').value;
+            var note_1 = document.getElementById('1').value;
+
+            //2000 
+            var total_2000 = note_2000 * 2000;
+            document.getElementById('t2000').innerHTML = total_2000;
+
+            //500
+            var total_500 = note_500 * 500;
+            document.getElementById('t500').innerHTML = total_500;
+
+            //200
+            var total_200 = note_200 * 200;
+            document.getElementById('t200').innerHTML = total_200;
+
+            //100
+            var total_100 = note_100 * 100;
+            document.getElementById('t100').innerHTML = total_100;
+
+            //50
+            var total_50 = note_50 * 50;
+            document.getElementById('t50').innerHTML = total_50;
+
+            //20
+            var total_20 = note_20 * 20;
+            document.getElementById('t20').innerHTML = total_20;
+
+            //10
+            var total_10 = note_10 * 10;
+            document.getElementById('t10').innerHTML = total_10;
+
+            //5
+            var total_5 = note_5 * 5;
+            document.getElementById('t5').innerHTML = total_5;
+
+            //2
+            var total_2 = note_2 * 2;
+            document.getElementById('t2').innerHTML = total_2;
+
+            //1
+            var total_1 = note_1 * 1;
+            document.getElementById('t1').innerHTML = total_1;
+
+
+
+
+            var total = +total_2000 + +total_500 + +total_200 + +total_100 + +total_50 + +total_20 + +total_10 + +total_5 + +total_2 + +total_1;
+            document.getElementById('result').innerHTML = +total + "~INR";
+
+
+            var total_note = +note_2000 + +note_500 + +note_200 + +note_100 + +note_50 + +note_20 + +note_10 + +note_5 + +note_2 + +note_1;
+
+            document.getElementById('note').innerHTML = + total_note + "~NOTES";
+
+
+            var num = parseInt(total);
+            document.getElementById('words').innerHTML = test(num) + " Rupee";
+        }
+
+        function test(n) {
+            if (n < 0)
+                return false;
+            single_digit = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine']
+            double_digit = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen']
+            below_hundred = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']
+            if (n === 0) return 'Zero'
+            function translate(n) {
+                word = ""
+                if (n < 10) {
+                    word = single_digit[n] + ' '
+                }
+                else if (n < 20) {
+                    word = double_digit[n - 10] + ' '
+                }
+                else if (n < 100) {
+                    rem = translate(n % 10)
+                    word = below_hundred[(n - n % 10) / 10 - 2] + ' ' + rem
+                }
+                else if (n < 1000) {
+                    word = single_digit[Math.trunc(n / 100)] + ' Hundred ' + translate(n % 100)
+                }
+                else if (n < 1000000) {
+                    word = translate(parseInt(n / 1000)).trim() + ' Thousand ' + translate(n % 1000)
+                }
+                else if (n < 1000000000) {
+                    word = translate(parseInt(n / 1000000)).trim() + ' Million ' + translate(n % 1000000)
+                }
+                else {
+                    word = translate(parseInt(n / 1000000000)).trim() + ' Billion ' + translate(n % 1000000000)
+                }
+                return word
+            }
+            result = translate(n)
+            return result.trim() + ' only'
+        }
+
+
+        const copyContent = async () => {
+            let cash = document.getElementById('cash').innerText
+            let note = document.getElementById('note').innerText
+            let word = document.getElementById('word').innerText;
+            let content = `${cash}\n ${note}\n ${word}\n`
+            try {
+                await navigator.clipboard.writeText(content);
+                alert('Content copied to clipboard');
+            } catch (err) {
+                alert('Failed to copy: ', err);
+            }
+        }
+    </script>
+
+
+    <style>
+        /* mobile phones */
+        @media (max-width: 576px) {
+            body {
+                background-color: lightblue;
+            }
+
+            img {
+                width: 80px;
+                margin-top: 20px;
+            }
+
+            input {
+                width: 80px;
+                padding: 5;
+            }
+
+            /* #val1,
+            #val2,
+            #val3,
+            #val4,
+            #val5,
+            #val6,
+            #val7 {
+                width: 100px;
+                margin-top: .5rem;
+            } */
+
+
+
+        }
+
+        /* small devices tablets */
+        @media (min-width: 577px) and (max-width: 768px) {
+            body {
+                background-color: rosybrown;
+            }
+        }
+
+        /* large devices desktops */
+        @media (min-width: 769px) and (max-width: 992px) {
+            body {
+                background-color: rgb(87, 214, 23);
+            }
+        }
+
+        /* x-large devices desktops */
+        @media (min-width: 993px) and (max-width: 1200px) {
+            body {
+                background-color: rgb(255, 0, 111);
+            }
+        }
+
+        @media (min-width: 1200px) and (max-width: 1400px) {
+            body {
+                background-color: rgba(240, 30, 212, 0.833);
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <h2></h2>
+        <form class="border-2" action="" method="post" id="form1">
+
+            <!-- 2000 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://paisaboltahai.rbi.org.in/images/2000-note-front.png" alt="" width="200"
+                                class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="2000" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t2000">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 500 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://paisaboltahai.rbi.org.in/images/500-note-front.png" alt="" width="200"
+                                class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="500" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t500">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 200 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://paisaboltahai.rbi.org.in/images/Rs200/200-note-front.png" alt=""
+                                width="200" class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="200" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t200">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 100 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://paisaboltahai.rbi.org.in/images/Rs100/100-note-front.png" alt=""
+                                width="200" class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="100" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t100">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 50 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://paisaboltahai.rbi.org.in/images/Rs50/50-note-front.png" alt="" width="200"
+                                class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="50" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t50">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://paisaboltahai.rbi.org.in/images/Rs20/20-note-front.png" alt="" width="200"
+                                class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="20" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t20">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://paisaboltahai.rbi.org.in/images/Rs10/10-note-front.png" alt="" width="200"
+                                class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="10" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t10">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/5_Rupees_%28Obverse%29.jpg"
+                                alt="" width="200" class="">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="5" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t5">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/KGVI_rupees_2_note_obverse.jpg"
+                                alt="" width="200" class="img-fluid img-currency mt-2">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="2" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t2">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1 -->
+            <div class="row">
+                <div class="col col-sm col-md col-lg col-xl col-xxl">
+                    <div class="d-flex mt-2">
+                        <div class="">
+                            <img src="https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2020/02/11/111398-rupe.jpg?itok=_PuaKJBX"
+                                alt="" width="200" class="img-fluid img-currency">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <input type="number" name="" id="1" onkeyup="return calculator()">
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1">=</span>
+                        </div>
+                        <div class="mt-4 ms-lg-2 ms-2">
+                            <span class="alert alert-success ms-lg-2 pb-2 pt-1" id="t1">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- total amount -->
+            <div class="row mt-3">
+                <div class="alert alert-danger col col-sm col-md col-lg col-xl col-xxl">
+                    <span class="alert alert-dark"><span><b>Total Cash:</b></span> = <span id="result" class="">0</span>
+                </div>
+            </div>
+
+            <!-- total note -->
+            <div class="row">
+                <div class="alert alert-primary col col-sm col-md col-lg col-xl col-xxl">
+                    <span class="alert alert-dark"><span><b>Total Note`S:</b></span>=<span id="note" class="">0</span>
+                </div>
+            </div>
+
+            <!-- total word me note -->
+            <div class="row">
+                <div class="alert alert-success col col-sm col-md col-lg col-xl col-xxl">
+                    <span id="words" class="alert-primary"></span>
+                </div>
+            </div>
+
+        </form>
+        <!-- clear button and copy button-->
+        <div class="row mb-2">
+            <div class="col-6 mx-auto">
+                <button type="button" class="btn btn-primary border-2 col-sm-12" id="clearButton">Clear All</button>
+            </div>
+            <div class="col-6 mx-auto">
+                <button type="button" class="btn btn-primary border-2 col-12" onclick="copyDetails()">Copy
+                    Details</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
